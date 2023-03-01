@@ -1,0 +1,22 @@
+<div class="header">
+    <h1 class="title-header"> Users</h1>
+    <button class="btn" routerLink="/form">Criar Usuário</button>
+</div>
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        <tr *ngFor="let user of users; let i = index">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone | phone}}</td>
+        </tr>
+    </table>
+    <div *ngIf="!users.length">
+        <span>Nenhum Usuário Cadastrado!</span>
+    </div>
+</div>
+<div class="footer"></div>
