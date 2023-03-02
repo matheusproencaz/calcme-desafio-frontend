@@ -1,8 +1,9 @@
-<div class="header">
-    <h1 class="title-header"> Users</h1>
-    <button class="btn" routerLink="/form">Criar Usuário</button>
-</div>
+<app-header title="Users" btnText="Create User" link="/form"></app-header>
 <div class="container">
+    <div class="successMessage" *ngIf="showSuccessMessage"> 
+        <i class="material-icons custom"> check_circle </i>
+        <p>Usuário registrado com sucesso!</p>
+    </div>
     <table>
         <tr>
             <th>Name</th>
@@ -19,4 +20,3 @@
         <span>Nenhum Usuário Cadastrado!</span>
     </div>
 </div>
-<div class="footer"></div>

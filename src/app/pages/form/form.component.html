@@ -1,1 +1,24 @@
-<p>form works!</p>
+<app-header title="Form" btnText="Back" link="/user"></app-header>
+<div class="container">
+    <form novalidate [formGroup]="form" #fform="ngForm" (ngSubmit)="onSubmit()" class="form">
+        <mat-form-field width="100%">
+            <input matInput formControlName="name" type="text" placeholder="Name" name="name">
+            <mat-error *ngIf="formErrors.name">
+                {{ formErrors.name }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field width="100%">
+            <input matInput formControlName="email" type="email" placeholder="E-mail" name="email">
+            <mat-error *ngIf="formErrors.name">
+                {{ formErrors.name }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field width="100%">
+            <input matInput formControlName="phone" type="text" placeholder="Phone" name="phone">
+            <mat-error *ngIf="formErrors.name">
+                {{ formErrors.name }}
+            </mat-error>
+        </mat-form-field>
+        <button class="btn" type="submit">Create Account</button>
+    </form>
+</div>
