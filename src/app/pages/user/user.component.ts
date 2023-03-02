@@ -1,3 +1,4 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user.model';
@@ -12,10 +13,15 @@ export class UserComponent implements OnInit {
 
   users: User[] = [];
   showSuccessMessage: boolean = false;
-  
+  showErrorMessage: boolean = false;
+  loading: boolean = true;
+
   constructor(private service: UserService, private router: Router) { 
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as { showMessage: boolean};
+  
+    console.log(this.users)
+
     if(state) {
       this.showSuccessMessage = state.showMessage;
 
@@ -30,7 +36,16 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.service.getUsers()
       .subscribe(
-        users => this.users = users
+        users => {
+          if(users) {
+            this.users = users
+          } 
+          this.loading = false;
+        },
+        err => {
+          this.showErrorMessage = true
+          this.loading = false;
+        }
       );
   }
 }

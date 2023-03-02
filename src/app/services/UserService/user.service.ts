@@ -17,7 +17,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${environment.baseUrl}/users`)
-      .pipe(catchError(this.errorHandler.handle));
+    .pipe(catchError(this.errorHandler.handle));
   }
 
   createUser(user: User): Observable<User> {

@@ -2,9 +2,9 @@
 <div class="container">
     <div class="successMessage" *ngIf="showSuccessMessage"> 
         <i class="material-icons custom"> check_circle </i>
-        <p>Usuário registrado com sucesso!</p>
+        <p>User successfully registered!</p>
     </div>
-    <table>
+    <table *ngIf="!loading && users && !showErrorMessage">
         <tr>
             <th>Name</th>
             <th>Email</th>
@@ -16,7 +16,13 @@
             <td>{{user.phone | phone}}</td>
         </tr>
     </table>
-    <div *ngIf="!users.length">
-        <span>Nenhum Usuário Cadastrado!</span>
+    <div class="warning" *ngIf="!loading && users.length <= 0 && !showErrorMessage">
+        <i class="material-icons custom"> add_circle </i>
+        <p>No user was found!</p>
+    </div>
+    <app-loading *ngIf="loading"></app-loading>
+    <div class="error" *ngIf="showErrorMessage">
+        <i class="material-icons custom"> cancel </i>
+        <p>Unexpected error!</p>
     </div>
 </div>

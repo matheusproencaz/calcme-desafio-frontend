@@ -12,6 +12,8 @@ body {
     --white: #FFF;
     --gray: rgb(223, 223, 223);
     --darkGreen: rgb(27, 173, 27);
+    --red: rgb(221, 96, 96);
+    --yellow: rgb(206, 206, 0);
 }
 
 .container {

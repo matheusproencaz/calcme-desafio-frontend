@@ -47,3 +47,29 @@ p {
     color: var(--white);
     border: 2px solid var(--white);
 }
+
+.warning {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 15px;
+    margin-top: 1vh;
+    width: 50%;
+    padding: 1vh;
+    background-color: var(--yellow);
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 15px;
+    margin-top: 1vh;
+    width: 50%;
+    padding: 1vh;
+    background-color: var(--red);
+    color: var(--white);
+    border: 2px solid var(--white);
+}
